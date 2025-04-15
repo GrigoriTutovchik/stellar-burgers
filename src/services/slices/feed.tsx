@@ -5,7 +5,7 @@ import {
   SerializedError
 } from '@reduxjs/toolkit';
 import { TOrder, TOrdersData } from '@utils-types';
-import { getFeedsApi } from '@api';
+import { getFeedsApi } from '../../utils/burger-api';
 
 export const loadFeedData = createAsyncThunk('feed/fetchFeedData', getFeedsApi);
 
@@ -16,7 +16,7 @@ export interface FeedState {
   loading: boolean;
 }
 
-const initialState: FeedState = {
+export const initialState: FeedState = {
   getOrdersData: null,
   orders: [],
   error: null,
@@ -57,4 +57,5 @@ export const feedSlice = createSlice({
 
 export const { getOrdersData, getAllOrders, isLoading, getError } =
   feedSlice.selectors;
+export const feedReducer = feedSlice.reducer;
 export default feedSlice;

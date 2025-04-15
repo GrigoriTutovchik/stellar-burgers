@@ -1,4 +1,4 @@
-import { orderBurgerApi } from '@api';
+import { orderBurgerApi } from '../../utils/burger-api';
 import {
   PayloadAction,
   createSlice,
@@ -22,7 +22,7 @@ export interface TConstructorState {
   error: string | undefined;
 }
 
-const initialState: TConstructorState = {
+export const initialState: TConstructorState = {
   items: {
     bun: null,
     ingredients: []

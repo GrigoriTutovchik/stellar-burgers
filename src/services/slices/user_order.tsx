@@ -4,7 +4,7 @@ import {
   SerializedError
 } from '@reduxjs/toolkit';
 import { TOrder } from '@utils-types';
-import { getOrdersApi } from '@api';
+import { getOrdersApi } from '../../utils/burger-api';
 
 export const getUserOrders = createAsyncThunk(
   'userOrders/fetchUserOrders',
@@ -17,7 +17,7 @@ interface UserOrdersState {
   error: SerializedError | null;
 }
 
-const initialState: UserOrdersState = {
+export const initialState: UserOrdersState = {
   orders: [],
   loading: false,
   error: null
@@ -57,4 +57,5 @@ export const {
   selectUserOrdersLoading,
   selectUserOrdersError
 } = userOrdersSlice.selectors;
-export default userOrdersSlice.reducer;
+
+export const userOrdersReducer = userOrdersSlice.reducer;
