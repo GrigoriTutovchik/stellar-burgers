@@ -8,7 +8,7 @@ import {
   registerUserApi,
   updateUserApi,
   TLoginData
-} from '@api';
+} from '../../utils/burger-api';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { deleteCookie, setCookie } from '../../utils/cookie';
 
@@ -50,7 +50,7 @@ interface UserState {
   error: SerializedError | null;
 }
 
-const initialState: UserState = {
+export const initialState: UserState = {
   user: null,
   isAuthChecked: false,
   error: null
@@ -140,4 +140,4 @@ export const userSlice = createSlice({
 
 export const { selectIsAuthChecked, selectUser, selectError } =
   userSlice.selectors;
-export default userSlice.reducer;
+export const userReducer = userSlice.reducer;
