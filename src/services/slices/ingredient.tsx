@@ -5,7 +5,7 @@ import {
   SerializedError
 } from '@reduxjs/toolkit';
 import { TIngredient } from '@utils-types';
-import { getIngredientsApi } from '@api';
+import { getIngredientsApi } from '../../utils/burger-api';
 
 export const getIngredients = createAsyncThunk(
   'ingredients/fetchIngredients',
@@ -18,7 +18,7 @@ interface IngredientsState {
   error: SerializedError | null;
 }
 
-const initialState: IngredientsState = {
+export const initialState: IngredientsState = {
   ingredients: [],
   isLoading: false,
   error: null
@@ -60,3 +60,4 @@ export const {
   selectIngredientsError
 } = ingredientsSlice.selectors;
 export default ingredientsSlice.reducer;
+export const ingredientsReducer = ingredientsSlice.reducer;
